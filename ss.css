@@ -1,0 +1,184 @@
+* {
+    /* Alle elementen krijg 0 margin */ 
+    margin: 0px;
+    /* Alleen nodig voor content-left/right class */
+    box-sizing:border-box;
+}
+/* Paragraaf terug spatie geven omdat we alles op nul hebben gezet */
+p { 
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* Tekst uitlijnen */
+    text-align: justify;
+}
+body {
+    /* Alle tekst dat in <body> staat krijgt de font Arial */
+    font-family: Arial;
+    background-color: #e6e6e6;
+}
+.container { /* De container bevat de klasse navigatie, content en footer */
+    margin-top: 10px;
+    padding-top: 10px;
+    /* De container is 70% breed */
+    width: 70%;
+    /* Container centreren */
+    margin: auto;
+}
+.content {
+    margin: 0px;
+    padding: 10px;
+    background-color: #fff;
+    /* Nodig om achtergrondkleur te fixen/overflowen bij gebruik van content-left/right » float: left
+       Zonder overflow: auto zou de achtergrond kleur stoppen na de <h1>Contactforumulier</h1> */
+    overflow: auto;
+}
+.responsive-img { /* Een afbeelding mag niet groter zijn als zijn parent div.
+                     Als je dit niet doet zal een afbeelding die 2000px breed is ook 2000px in breedte
+                     in beslag nemen en dus buiten het scherm komen wanneer je parent div 40% is bijvoorbeeld.
+                     Zet onderstaande regel eens in commentaar en kijk wat er veranderd op geluid.html */
+    width: 100%;
+}
+
+/* *** Navigatie *** */
+/* Opgepast vanaf nu zullen alle ul/li deze layout krijgen, zonder verdere aanpassing..
+   Dit kan dus beter.. het menu zit in een div genaamd navigation misschien kan deze hulp bieden? */
+
+/* Undordered list : <ul> ... </ul> */ 
+ul {
+    list-style-type: none; /* Maakt de bolletjes of getallen van een ul of ol onzichtbaar */
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #008693;
+    /* Hoeken boven afronden */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    /* Rand onderaan */
+    border-bottom: 4px #f04c25 solid;
+}
+/* List item van een <ul> of <ol> */ 
+li {
+    float: left;
+}
+/* List item met anchor : <li><a> ... </a></li> */ 
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+/* List item met de class heading : <li class="heading"> ... </li>*/ 
+li.heading {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-weight: bold;
+    /* Lettertype wijzigen */
+    /*font-family: Verdana;*/
+}
+/* Wanneer je hovert over een listen item anchor : <li><a> ... </a></li> */ 
+li a:hover {
+    background-color: #111;
+}
+/* class="active" zet de achtergrondkleur op #f04c25 */
+.active {
+    background-color: #f04c25;
+}
+/* *** Einde navigatie *** */
+
+.footer {
+    background-color: #008693;
+    color: #fff;
+    padding: 14px;
+    font-weight: bold;
+    text-align: right;
+    /* Reset nodig voor float: left/right */
+    clear: both;
+    /* Hoeken onder afronden */
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    /* Rand bovenaan */
+    border-top: 4px #f04c25 solid;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.content-left {
+    width: 60%;
+    float: left;
+    padding-right: 10px;
+} 
+
+.content-right {
+    width: 40%;
+    float: right;
+    padding-left:10px;
+} 
+
+/* Formulieren en buttons */
+input[type=text], select { /* <input type="text"/> en <select></select> */
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea { /* <textarea></textarea/> */
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] { /* <input type="submit"/> */
+    width: 100%;
+    background-color: #f04c25;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=button] { /* <input type="button"/> */
+    width: 100%;
+    background-color: #f04c25;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+/* Responsive maken */
+@media screen and (max-width: 800px) {
+    .content-left, .content-right {
+        /* De width zal 100%, wanneer de viewport 800px of smaller is. */
+        /* .content-left en .content-right hebben een width van 60% en 40% normaalgezien, hier overschrijven we dat. */
+        width: 100%;
+        /* Fix omdat we normaal padding-right/left op 10px zetten */
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+}
